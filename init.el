@@ -22,8 +22,13 @@
                                 '("VL Gothic-14" . "unicode-bmp"))
               ))))
 
-;;(setq-default ispell-program-name "aspell")
-(setq ispell-program-name "/opt/homebrew/bin/aspell")
+(when (eq system-type 'darwin)
+  (setq ispell-program-name "/opt/homebrew/bin/aspell")
+)
+(when (eq system-type 'gnu/linux)
+  (setq ispell-program-name "/usr/bin/aspell")
+)
+
 (with-eval-after-load "ispell"
   (setq ispell-local-dictionary "en_US")
   (add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")))
@@ -45,11 +50,13 @@
  ;; If there is more than one, they won't work right.
  )
 
-(global-set-key "\C-x\C-j" 'skk-mode)
-(global-set-key "\C-xj" 'skk-auto-fill-mode)
-(global-set-key "\C-xt" 'skk-tutorial)
-(setq default-input-method "japanese-skk")
+(if window-system (progn
+  (global-set-key "\C-x\C-j" 'skk-mode)
+  (global-set-key "\C-xj" 'skk-auto-fill-mode)
+  (global-set-key "\C-xt" 'skk-tutorial)
+  (setq default-input-method "japanese-skk")
 
-(setq skk-server-host "localhost")
-(setq skk-server-portnum 1178)
-(setq skk-jisyo-code 'utf-9)
+  (setq skk-server-host "localhost")
+  (setq skk-server-portnum 1178)
+  (setq skk-jisyo-code 'utf-9)
+))
