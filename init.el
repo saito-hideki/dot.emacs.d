@@ -22,7 +22,34 @@
                                 '("VL Gothic-14" . "unicode-bmp"))
               ))))
 
-(setq-default ispell-program-name "aspell")
+;;(setq-default ispell-program-name "aspell")
+(setq ispell-program-name "/opt/homebrew/bin/aspell")
 (with-eval-after-load "ispell"
   (setq ispell-local-dictionary "en_US")
   (add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")))
+
+(add-hook 'find-file-hook 'flyspell-mode)
+(add-hook 'find-file-hook 'flyspell-buffer)
+
+(setq markdown-preview-stylesheets (list "github.css"))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages '(ddskk yaml-mode markdown-preview-mode json-mode ini-mode)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(global-set-key "\C-x\C-j" 'skk-mode)
+(global-set-key "\C-xj" 'skk-auto-fill-mode)
+(global-set-key "\C-xt" 'skk-tutorial)
+(setq default-input-method "japanese-skk")
+
+(setq skk-server-host "localhost")
+(setq skk-server-portnum 1178)
+(setq skk-jisyo-code 'utf-9)
