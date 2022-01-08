@@ -4,38 +4,52 @@
         ("melpa" . "http://melpa.org/packages/")
         ("org" . "http://orgmode.org/elpa/")))
 
-(load-theme 'tango-dark t)
+(if window-system (progn
+   (load-theme 'deeper-blue t)
+))
+(if (not window-system) (progn
+   (load-theme 'monokai t)
+))
 
 (setq auto-save-default nil)
+(global-linum-mode 1)
+(global-hl-line-mode)
 
 (setq inhibit-startup-message nil)
-(setq initial-scrarch-message nil) 
+(setq initial-scrarch-message nil)
+(setq initial-scratch-message "")
 (setq inhibit-splash-screen t)
 (setq make-backup-files nil)
 (setq indent-tabs-mode nil)
 (setq tab-width 4)
 (setq scroll-conservatively 1)
 
+(show-paren-mode t)
+
 (electric-pair-mode t)
 (column-number-mode t)
-(global-linum-mode t)
-(setq linum-format "%5d: ")
-(show-paren-mode t)
-;;(menu-bar-mode t)
+(setq linum-format "%04d:")
+(menu-bar-mode -1)
 (tool-bar-mode -1)
 
+(setq whitespace-style '(face
+                         trailing
+                         tabs
+                         empty
+                         spaces
+                         space-mark
+                         tab-mark))
+(global-whitespace-mode 1)
 
-
-(global-hl-line-mode)
-
-(add-to-list 'default-frame-alist '(font . "VL Gothic-14"))
+(add-to-list 'default-frame-alist '(font . "Ricty Diminished Discord 14"))
 (cond ((string-match "^23\." emacs-version)
        (cond (window-system
-              (set-default-font "VL Gothic-14")
+              (set-default-font "Ricty Diminished Discord 14")
               (set-fontset-font (frame-parameter nil 'font)
                                 'japanese-jisx0208
-                                '("VL Gothic-14" . "unicode-bmp"))
+                                '("Ricty Diminished Discord 14" . "unicode-bmp"))
               ))))
+(setq-default line-spacing 2)
 
 (when (eq system-type 'darwin)
   (setq ispell-program-name "/opt/homebrew/bin/aspell")
@@ -57,7 +71,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(ddskk yaml-mode markdown-preview-mode json-mode ini-mode)))
+ '(package-selected-packages
+   '(afternoon-theme flatland-theme cyberpunk-theme color-theme-sanityinc-solarized flatland-black-theme ddskk yaml-mode markdown-preview-mode json-mode ini-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
