@@ -6,12 +6,27 @@
 
 (load-theme 'tango-dark t)
 
-(setq inhibit-splash-screen t)
-(setq make-backup-files nil)
 (setq auto-save-default nil)
 
-(setq tab-width 4)
+(setq inhibit-startup-message nil)
+(setq initial-scrarch-message nil) 
+(setq inhibit-splash-screen t)
+(setq make-backup-files nil)
 (setq indent-tabs-mode nil)
+(setq tab-width 4)
+(setq scroll-conservatively 1)
+
+(electric-pair-mode t)
+(column-number-mode t)
+(global-linum-mode t)
+(setq linum-format "%5d: ")
+(show-paren-mode t)
+;;(menu-bar-mode t)
+(tool-bar-mode -1)
+
+
+
+(global-hl-line-mode)
 
 (add-to-list 'default-frame-alist '(font . "VL Gothic-14"))
 (cond ((string-match "^23\." emacs-version)
