@@ -22,16 +22,7 @@
                                 '("VL Gothic-14" . "unicode-bmp"))
               ))))
 
-;; for yaml-mode
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages '(yaml-mode)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(setq-default ispell-program-name "aspell")
+(with-eval-after-load "ispell"
+  (setq ispell-local-dictionary "en_US")
+  (add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")))
