@@ -27,7 +27,7 @@
    (load-theme 'material t)
 ))
 (if (not window-system) (progn
-   (load-theme 'monokai t)
+   (load-theme 'misterioso t)
 ))
 
 ;; Auto save and backup file setting
@@ -111,7 +111,22 @@
   (setq skk-jisyo-code 'utf-9)
 ))
 
+;; ---------------------------------
 ;; Development environment settings
+
+;; ELISP settings
+(add-hook 'emacs-lisp-mode-hook (lambda ()
+                                  (setq indent-tabs-mode nil)
+                                  (setq tab-width 4)
+                                  ))
+
+;; Shell script settings
+(add-hook 'sh-mode-hook (lambda ()
+                          (setq indent-tabs-mode nil)
+                          (setq tab-width 4)
+                          ))
+
+;; Python settings
 (elpy-enable)
 
 ;; ----------------------------------------
