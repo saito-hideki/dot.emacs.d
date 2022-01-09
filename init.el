@@ -14,9 +14,12 @@
   (add-to-list 'default-frame-alist '(height . 60))
   (add-to-list 'default-frame-alist '(width . 100)))
 
+;; Language environment settings
+(set-language-environment "UTF-8")
+
 ;; Set color theme for emacs
 (if window-system (progn
-   (load-theme 'deeper-blue t)
+   (load-theme 'material t)
 ))
 (if (not window-system) (progn
    (load-theme 'monokai t)
@@ -91,20 +94,6 @@
 ;;(setq markdown-preview-stylesheets
 ;;      (list "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css"))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(exec-path-from-shell afternoon-theme flatland-theme cyberpunk-theme color-theme-sanityinc-solarized flatland-black-theme ddskk yaml-mode markdown-preview-mode json-mode ini-mode)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
 ;; SKK settings
 (if window-system (progn
   (global-set-key "\C-x\C-j" 'skk-mode)
@@ -116,5 +105,24 @@
   (setq skk-server-portnum 1178)
   (setq skk-jisyo-code 'utf-9)
 ))
+
+;; Development environment settings
+(elpy-enable)
+
+;; ----------------------------------------
+;; Following lines are automatically added
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(material-theme elpy exec-path-from-shell afternoon-theme flatland-theme cyberpunk-theme color-theme-sanityinc-solarized flatland-black-theme ddskk yaml-mode markdown-preview-mode json-mode ini-mode)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 ;; EOF
