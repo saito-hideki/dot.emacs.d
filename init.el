@@ -10,7 +10,7 @@
   (exec-path-from-shell-initialize))
 
 ;; Set current working directory
-(setq default-directory "~/work" )
+(setq default-directory "~/work/" )
 
 ;; Set the window size at startup
 (when window-system
