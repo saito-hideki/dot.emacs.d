@@ -11,7 +11,8 @@
 
 ;; Set current working directory settings
 (add-hook 'find-file-hooks 'view-mode)
-(setq default-directory "~/work/" )
+(when window-system
+  (setq default-directory "~/work/devel/" ))
 
 ;; Set the window size at startup
 (when window-system
