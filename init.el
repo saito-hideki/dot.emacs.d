@@ -9,6 +9,9 @@
 (when (require 'exec-path-from-shell nil t)
   (exec-path-from-shell-initialize))
 
+;; Set current working directory
+(setq default-directory "~/work" )
+
 ;; Set the window size at startup
 (when window-system
   (add-to-list 'default-frame-alist '(height . 60))
