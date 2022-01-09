@@ -9,7 +9,8 @@
 (when (require 'exec-path-from-shell nil t)
   (exec-path-from-shell-initialize))
 
-;; Set current working directory
+;; Set current working directory settings
+(add-hook 'find-file-hooks 'view-mode)
 (setq default-directory "~/work/" )
 
 ;; Set the window size at startup
