@@ -117,6 +117,10 @@
 ;; Trailing whitespace before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Highlight indent guides settings
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(setq highlight-indent-guides-character ?\|)
+
 ;; ELISP settings
 (add-hook 'emacs-lisp-mode-hook (lambda ()
                                   (setq indent-tabs-mode nil)
@@ -130,7 +134,9 @@
                           ))
 
 ;; Python settings
-(elpy-enable)
+(add-hook 'elpy-mode-hook (lambda ()
+                            (setq highlight-indent-mode nil)
+                            ))
 
 ;; ----------------------------------------
 ;; Following lines are automatically added
@@ -140,7 +146,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(material-theme elpy exec-path-from-shell afternoon-theme flatland-theme cyberpunk-theme color-theme-sanityinc-solarized flatland-black-theme ddskk yaml-mode markdown-preview-mode json-mode ini-mode)))
+   '(highlight-indent-guides material-theme elpy exec-path-from-shell afternoon-theme flatland-theme cyberpunk-theme color-theme-sanityinc-solarized flatland-black-theme ddskk yaml-mode markdown-preview-mode json-mode ini-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
