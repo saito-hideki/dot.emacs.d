@@ -114,6 +114,9 @@
 ;; ---------------------------------
 ;; Development environment settings
 
+;; Trailing whitespace before saving
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; ELISP settings
 (add-hook 'emacs-lisp-mode-hook (lambda ()
                                   (setq indent-tabs-mode nil)
