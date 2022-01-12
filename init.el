@@ -117,10 +117,6 @@
 ;; Trailing whitespace before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Highlight indent guides settings
-(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-(setq highlight-indent-guides-character ?\|)
-
 ;; ELISP settings
 (add-hook 'emacs-lisp-mode-hook (lambda ()
                                   (setq indent-tabs-mode nil)
@@ -134,9 +130,12 @@
                           ))
 
 ;; Python settings
+(elpy-enable)
 (add-hook 'elpy-mode-hook (lambda ()
-                            (setq highlight-indent-mode nil)
+                            (setq highlight-indent-mode t)
+                            (setq highlight-indent-guides-character ?\|)
                             ))
+(add-hook 'highlight-indentation-mode-hook 'highlight-indentation-current-column-mode)
 
 ;; ----------------------------------------
 ;; Following lines are automatically added
