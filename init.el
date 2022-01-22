@@ -5,6 +5,13 @@
         ("melpa" . "http://melpa.org/packages/")
         ("org" . "http://orgmode.org/elpa/")))
 
+;; Use UTF-8 for the default
+(set-language-environment "Japanese")
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-buffer-file-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
+
 ;; Pass through shell environment variables to emacs
 (when (require 'exec-path-from-shell nil t)
   (exec-path-from-shell-initialize))
