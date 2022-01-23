@@ -37,6 +37,14 @@
    (load-theme 'misterioso t)
 ))
 
+;; Color
+(if window-system (progn
+    (set-background-color "Black")
+    (set-foreground-color "LightGray")
+    (set-cursor-color "Gray")
+    (set-frame-parameter nil 'alpha 80)
+    ))
+
 ;; Auto save and backup file setting
 (setq auto-save-default nil)
 (setq make-backup-files nil)
