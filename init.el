@@ -17,7 +17,7 @@
   (exec-path-from-shell-initialize))
 
 ;; Set current working directory settings
-(add-hook 'find-file-hooks 'view-mode)
+;;(add-hook 'find-file-hooks 'view-mode)
 (when window-system
   (setq default-directory "~/work/devel/" ))
 
@@ -55,6 +55,9 @@
 (setq initial-scratch-message "")
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
 
 ;; Line-numbers, column-numbers, line highlighting, and scroll settings
 (global-linum-mode 1)
@@ -146,6 +149,7 @@
 
 ;; Python settings
 (elpy-enable)
+(setq elpy-rpc-python-command "python3")
 (add-hook 'elpy-mode-hook (lambda ()
                             (setq highlight-indent-mode t)
                             (setq highlight-indent-guides-character ?\|)
@@ -160,7 +164,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(highlight-indent-guides material-theme elpy exec-path-from-shell afternoon-theme flatland-theme cyberpunk-theme color-theme-sanityinc-solarized flatland-black-theme ddskk yaml-mode markdown-preview-mode json-mode ini-mode)))
+   '(spaceline highlight-indent-guides material-theme elpy exec-path-from-shell afternoon-theme flatland-theme cyberpunk-theme color-theme-sanityinc-solarized flatland-black-theme ddskk yaml-mode markdown-preview-mode json-mode ini-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
