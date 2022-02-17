@@ -29,9 +29,13 @@
 ;; Language environment settings
 (set-language-environment "UTF-8")
 
+;; Replace tab with whitespace
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+
 ;; Set color theme for emacs
 (if window-system (progn
-   (load-theme 'material t)
+   (load-theme 'misterioso t)
 ))
 (if (not window-system) (progn
    (load-theme 'misterioso t)
@@ -42,7 +46,7 @@
     (set-background-color "Black")
     (set-foreground-color "LightGray")
     (set-cursor-color "Gray")
-    (set-frame-parameter nil 'alpha 80)
+    (set-frame-parameter nil 'alpha 90)
     ))
 
 ;; Auto save and backup file setting
@@ -108,7 +112,7 @@
   (setq ispell-local-dictionary "en_US")
   (add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")))
 
-(add-hook 'find-file-hook 'flyspell-mode)
+(add-hook 'find-file-hook 'flyspell-prog-mode)
 (add-hook 'find-file-hook 'flyspell-buffer)
 
 ;; Markdown and preview settings
