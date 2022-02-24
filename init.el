@@ -35,10 +35,10 @@
 
 ;; Set color theme for emacs
 (if window-system (progn
-   (load-theme 'misterioso t)
+   (load-theme 'dracula t)
 ))
 (if (not window-system) (progn
-   (load-theme 'misterioso t)
+   (load-theme 'monokai t)
 ))
 
 ;; Color
@@ -52,6 +52,10 @@
 ;; Auto save and backup file setting
 (setq auto-save-default nil)
 (setq make-backup-files nil)
+
+; tree-undo setting
+(when (require 'undo-tree nil t)
+  (global-undo-tree-mode))
 
 ;; Startup screen settings
 (setq inhibit-startup-screen t)
@@ -112,8 +116,8 @@
   (setq ispell-local-dictionary "en_US")
   (add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")))
 
-(add-hook 'find-file-hook 'flyspell-prog-mode)
-(add-hook 'find-file-hook 'flyspell-buffer)
+;;(add-hook 'find-file-hook 'flyspell-prog-mode)
+;;(add-hook 'find-file-hook 'flyspell-buffer)
 
 ;; Markdown and preview settings
 (setq markdown-command "pandoc")
@@ -173,7 +177,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(terraform-mode spaceline highlight-indent-guides material-theme elpy exec-path-from-shell afternoon-theme flatland-theme cyberpunk-theme color-theme-sanityinc-solarized flatland-black-theme ddskk yaml-mode markdown-preview-mode json-mode ini-mode)))
+   '(undo-tree dracula-theme terraform-mode spaceline highlight-indent-guides material-theme elpy exec-path-from-shell afternoon-theme flatland-theme cyberpunk-theme color-theme-sanityinc-solarized flatland-black-theme ddskk yaml-mode markdown-preview-mode json-mode ini-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
