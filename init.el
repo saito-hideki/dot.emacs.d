@@ -23,8 +23,8 @@
 
 ;; Set the window size at startup
 (when window-system
-  (add-to-list 'default-frame-alist '(height . 65))
-  (add-to-list 'default-frame-alist '(width . 110)))
+  (add-to-list 'default-frame-alist '(height . 56))
+  (add-to-list 'default-frame-alist '(width . 100)))
 
 ;; Language environment settings
 (set-language-environment "UTF-8")
