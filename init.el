@@ -23,8 +23,8 @@
 
 ;; Set the window size at startup
 (when window-system
-  (add-to-list 'default-frame-alist '(height . 56))
-  (add-to-list 'default-frame-alist '(width . 100)))
+  (add-to-list 'default-frame-alist '(height . 64))
+  (add-to-list 'default-frame-alist '(width . 110)))
 
 ;; Language environment settings
 (set-language-environment "UTF-8")
@@ -35,7 +35,7 @@
 
 ;; Set color theme for emacs
 (if window-system (progn
-   (load-theme 'dracula t)
+   (load-theme 'monokai t)
 ))
 (if (not window-system) (progn
    (load-theme 'monokai t)
