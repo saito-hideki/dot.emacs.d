@@ -5,6 +5,9 @@
         ("melpa" . "http://melpa.org/packages/")
         ("org" . "http://orgmode.org/elpa/")))
 
+;; Exit confirmation
+(setq confirm-kill-emacs 'y-or-n-p)
+
 ;; Use UTF-8 for the default
 (set-language-environment "Japanese")
 (set-terminal-coding-system 'utf-8)
