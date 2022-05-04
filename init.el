@@ -97,13 +97,13 @@
 (global-whitespace-mode 1)
 
 ;; Font and line-space settings
-(add-to-list 'default-frame-alist '(font . "Ricty Diminished Discord 16"))
+(add-to-list 'default-frame-alist '(font . "Ricty Diminished Discord 14"))
 (cond ((string-match "^23\." emacs-version)
        (cond (window-system
-              (set-default-font "Ricty Diminished Discord 16")
+              (set-default-font "Ricty Diminished Discord 14")
               (set-fontset-font (frame-parameter nil 'font)
                                 'japanese-jisx0208
-                                '("Ricty Diminished Discord 16" . "unicode-bmp"))
+                                '("Ricty Diminished Discord 14" . "unicode-bmp"))
 
               ))))
 (setq-default line-spacing 2)
@@ -159,18 +159,23 @@
                           ))
 
 ;; Python settings
-(elpy-enable)
-(setq elpy-rpc-python-command "python3")
-(add-hook 'elpy-mode-hook (lambda ()
-                            (setq highlight-indent-mode t)
-                            (setq highlight-indent-guides-character ?\|)
-                            ))
-(add-hook 'highlight-indentation-mode-hook 'highlight-indentation-current-column-mode)
+;(elpy-enable)
+;(setq elpy-rpc-python-command "python3")
+;(add-hook 'elpy-mode-hook (lambda ()
+;                            (setq highlight-indent-mode t)
+;                            (setq highlight-indent-guides-character ?\|)
+;                            ))
+;(add-hook 'highlight-indentation-mode-hook 'highlight-indentation-current-column-mode)
 
 
 ;; Terraform settings
 (require 'terraform-mode)
 (add-hook 'terraform-mode-hook #'terraform-format-on-save-mode)
+
+;; lsp-mode
+(require 'lsp-mode)
+(add-hook 'python-mode-hook #'lsp)
+
 
 ;; ----------------------------------------
 ;; Following lines are automatically added
@@ -180,7 +185,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(undo-tree dracula-theme terraform-mode spaceline highlight-indent-guides material-theme elpy exec-path-from-shell afternoon-theme flatland-theme cyberpunk-theme color-theme-sanityinc-solarized flatland-black-theme ddskk yaml-mode markdown-preview-mode json-mode ini-mode)))
+   '(use-package company-ansible company lsp-ui lsp-pyright lsp-mode undo-tree dracula-theme terraform-mode spaceline highlight-indent-guides material-theme elpy exec-path-from-shell afternoon-theme flatland-theme cyberpunk-theme color-theme-sanityinc-solarized flatland-black-theme ddskk yaml-mode markdown-preview-mode json-mode ini-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
